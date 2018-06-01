@@ -157,8 +157,8 @@ $(function () {
 		updateActiveYear(parseInt($(this).data("year")))
 	})
 
-	$.get("data/countries.geo.json").done(function (data) {
-		worldBoundariesLayer = L.geoJson(JSON.parse(data), {
+	$.get({url:"data/countries.geo.json", dataType:'json'}).done(function (data) {
+		worldBoundariesLayer = L.geoJson(data, {
 			onEachFeature: myOnEachFeature,
 			style: countryBoundaryStyle
 		});

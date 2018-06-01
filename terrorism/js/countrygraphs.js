@@ -159,17 +159,17 @@ window.CountryGraphs = (() => {
 	}
 
 	function fetchData() {
-		$.when($.get('data/attacks_year_location.json'), 
-			$.get("data/country_year_stats.json"), 
-			$.get("data/org_country_year_stats.json"), 
-			$.get("data/country_year_attacktype.json")).done(function (response1, response2, response3, response4) {
-			var dataByYear = _.groupBy(JSON.parse(response1[0]), "year")
+		$.when($.get({url:'data/attacks_year_location.json', dataType:'json'}), 
+			$.get({url:"data/country_year_stats.json", dataType:'json'}), 
+			$.get({url:"data/org_country_year_stats.json", dataType:'json'}), 
+			$.get({url:"data/country_year_attacktype.json", dataType:'json'})).done(function (response1, response2, response3, response4) {
+			var dataByYear = _.groupBy(response1[0], "year")
 			yearValues = _.keys(dataByYear)
-			countryTrendGraph._data = _.groupBy(JSON.parse(response2[0]), "country")
+			countryTrendGraph._data = _.groupBy(response2[0], "country")
 			countryFoiledTrendGraph._data = countryTrendGraph._data
 			countryKillTrendGraph._data = countryTrendGraph._data
 			countryDamageTrendGraph._data = countryTrendGraph._data
-			var groupedByYear = _.groupBy(JSON.parse(response3[0]), "year")
+			var groupedByYear = _.groupBy(response3[0], "year")
 			orgCountryYearGraph._data = {}
 			_.forEach(groupedByYear, (values, year) => {
 				var groupedByCountry = _.groupBy(values, "country")
@@ -179,7 +179,7 @@ window.CountryGraphs = (() => {
 					orgCountryYearGraph._data[year][country_name] = arr.slice(Math.max(arr.length - 5, 0))
 				})
 			})
-			var groupedByYear = _.groupBy(JSON.parse(response4[0]), "year")
+			var groupedByYear = _.groupBy(response4[0], "year")
 			countryYearTypeGraph._data = {}
 			_.forEach(groupedByYear, (values, year) => {
 				var groupedByCountry = _.groupBy(values, "country")

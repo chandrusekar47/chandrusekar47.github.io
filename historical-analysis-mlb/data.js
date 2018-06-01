@@ -1,7 +1,7 @@
 window.Data = (() => {
 	return {
 		fetch: function (callback) {
-			$.get("summary.json")
+			$.get({url:"summary.json", dataType: 'json'})
 			.done(callback)
 			return this
 		}
