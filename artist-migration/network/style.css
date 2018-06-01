@@ -1,0 +1,116 @@
+* {
+  font-family: 'Open sans', sans-serif;
+  transition: all 500ms ease-in-out;
+}
+
+h2, h4{
+  font-weight: 200;
+}
+
+ul.legend {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.align-box {
+  width: 60%;
+  margin: auto;
+  text-align: left;
+}
+
+ul.legend li {
+  text-align: left;
+  margin: auto;
+  position: relative;
+  right: -20px;
+}
+
+ul.legend li.death:before {
+  content: ' ';
+  position: relative;
+  left: -20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  vertical-align: middle;
+}
+
+ul.legend li.birth:before {
+  content: ' ';
+  position: relative;
+  left: -20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  vertical-align: middle;
+}
+
+.text-label.small {
+    font-size: 0.75em;
+    font-weight: 100;
+    opacity: 0.75;
+}
+
+.text-label.medium {
+  opacity: 0.85;
+  font-size: 0.9em;
+  font-weight: normal;
+}
+
+.text-label.small.active, .text-label.medium.active {
+  opacity: 1.0;
+  font-weight: bold;
+}
+
+.text-label.attractor {
+  opacity: 1;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.node-group text {
+  text-anchor: middle;
+}
+
+#arrow {
+	fill: rgba(15, 15, 15, 0.6);
+}
+#arrow_active_in {
+  opacity: 1.0;
+  fill: rgba(0, 0, 0, 1);
+}
+#arrow_active_out {
+  opacity: 1.0;
+  fill: rgba(0, 0, 0, 1);
+}
+.link {
+  stroke: #ccc;
+  opacity: 0.2;
+}
+.link.active {
+  opacity: 1;
+  stroke-width: 2px;
+}
+.link.active.in {
+  stroke: #f00;  
+}
+.link.active.out {
+  stroke: #74c143;
+}
+.subdued {
+  opacity: 0.35;
+}
+
+.node.active {
+  opacity: 1.0 !important;
+  stroke-width: 2px !important;
+}
+
+.node text {
+  pointer-events: none;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
